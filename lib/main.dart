@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 
-void main() {
+/* void main() {
   runApp(MyTestingApp());
-} //this is the function that kicks off the app -> always void main ()
+} */ //this is the function that kicks off the app -> always void main ()
+
+void main() => runApp(MyTestingApp());
 
 class MyTestingApp extends StatelessWidget {
+  @override //makes clear that we overrides the build method
   Widget build(BuildContext context) {
     //Needs Type and Context
     return MaterialApp(
-        home: Text(
-            'Testing App! that is terrible')); //receive the named arguments
+      home: Scaffold(
+        appBar: AppBar(title: Text('My first app')), //appbar
+        body: Text('This is the default body'),
+      ),
+    ); //receive the named arguments
   }
 }
