@@ -11,18 +11,18 @@ class MyTestingApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
 
-    return MyTestingAppState();
+    return _MyTestingAppState();
   }
 }
 
-class MyTestingAppState extends State<MyTestingApp> {
-  var questionIndex = 0;
-  void answerQuestion() {
+class _MyTestingAppState extends State<MyTestingApp> {
+  var _questionIndex = 0;
+  void _answerQuestion() {
     setState(() {
-    questionIndex++;
+    _questionIndex++;
     });
-    print(questionIndex);
-  }
+    print(_questionIndex);
+}
 
   @override //makes clear that we overrides the build method
   Widget build(BuildContext context) {
@@ -35,10 +35,10 @@ class MyTestingAppState extends State<MyTestingApp> {
       home: Scaffold(
         appBar: AppBar(title: Text('My first app')), //appbar
         body: Column(children: <Widget>[
-          Text(questions[questionIndex]),
-          ElevatedButton(onPressed: answerQuestion, child: Text('Answer 1')),
-          ElevatedButton(onPressed: answerQuestion, child: Text('Answer 2')),
-          ElevatedButton(onPressed: answerQuestion, child: Text('Answer 3')),
+          Text(questions[_questionIndex]),
+          ElevatedButton(onPressed: _answerQuestion, child: Text('Answer 1')),
+          ElevatedButton(onPressed: _answerQuestion, child: Text('Answer 2')),
+          ElevatedButton(onPressed: _answerQuestion, child: Text('Answer 3')),
         ]),
       ),
     ); //receive the named arguments
