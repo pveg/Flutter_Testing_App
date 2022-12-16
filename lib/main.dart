@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './question.dart';
+
 /* void main() {
   runApp(MyTestingApp());
 } */ //this is the function that kicks off the app -> always void main ()
@@ -35,7 +37,7 @@ class _MyTestingAppState extends State<MyTestingApp> {
       home: Scaffold(
         appBar: AppBar(title: Text('My first app')), //appbar
         body: Column(children: <Widget>[
-          Text(questions[_questionIndex]),
+          Question(questions[_questionIndex]),
           ElevatedButton(onPressed: _answerQuestion, child: Text('Answer 1')),
           ElevatedButton(onPressed: _answerQuestion, child: Text('Answer 2')),
           ElevatedButton(onPressed: _answerQuestion, child: Text('Answer 3')),
