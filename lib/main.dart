@@ -9,10 +9,8 @@ import './question.dart';
 void main() => runApp(MyTestingApp());
 
 class MyTestingApp extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() {
-
     return _MyTestingAppState();
   }
 }
@@ -21,10 +19,10 @@ class _MyTestingAppState extends State<MyTestingApp> {
   var _questionIndex = 0;
   void _answerQuestion() {
     setState(() {
-    _questionIndex++;
+      _questionIndex++;
     });
     print(_questionIndex);
-}
+  }
 
   @override //makes clear that we overrides the build method
   Widget build(BuildContext context) {
@@ -38,9 +36,22 @@ class _MyTestingAppState extends State<MyTestingApp> {
         appBar: AppBar(title: Text('My first app')), //appbar
         body: Column(children: <Widget>[
           Question(questions[_questionIndex]),
-          ElevatedButton(onPressed: _answerQuestion, child: Text('Answer 1')),
-          ElevatedButton(onPressed: _answerQuestion, child: Text('Answer 2')),
-          ElevatedButton(onPressed: _answerQuestion, child: Text('Answer 3')),
+          ElevatedButton(
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.blue)),
+              onPressed: _answerQuestion,
+              child: Text('Answer 1')),
+          ElevatedButton(
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.red)),
+              onPressed: _answerQuestion,
+              child: Text('Answer 2')),
+          ElevatedButton(
+              style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all(Colors.green[400])),
+              onPressed: _answerQuestion,
+              child: Text('Answer 3')),
         ]),
       ),
     ); //receive the named arguments
