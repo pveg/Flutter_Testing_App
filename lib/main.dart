@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './question.dart';
+import './answers.dart';
 
 /* void main() {
   runApp(MyTestingApp());
@@ -36,22 +37,9 @@ class _MyTestingAppState extends State<MyTestingApp> {
         appBar: AppBar(title: Text('My first app')), //appbar
         body: Column(children: <Widget>[
           Question(questions[_questionIndex]),
-          ElevatedButton(
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue)),
-              onPressed: _answerQuestion,
-              child: Text('Answer 1')),
-          ElevatedButton(
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.red)),
-              onPressed: _answerQuestion,
-              child: Text('Answer 2')),
-          ElevatedButton(
-              style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(Colors.green[400])),
-              onPressed: _answerQuestion,
-              child: Text('Answer 3')),
+          Answers(_answerQuestion),
+          Answers(_answerQuestion),
+          Answers(_answerQuestion),
         ]),
       ),
     ); //receive the named arguments
