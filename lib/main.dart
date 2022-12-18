@@ -17,6 +17,20 @@ class MyTestingApp extends StatefulWidget {
 }
 
 class _MyTestingAppState extends State<MyTestingApp> {
+  static const questions = [
+    {
+      'questionText': 'what is your favorite color',
+      'answers': ['red', 'blue', 'white']
+    },
+    {
+      'questionText': 'what is your favorite animal',
+      'answers': ['rabbit', 'snake', 'dog']
+    },
+    {
+      'questionText': 'who is your favorite instructor',
+      'answers': ['max', 'max', 'max']
+    },
+  ];
   var _questionIndex = 0;
   void _answerQuestion() {
     setState(() {
@@ -27,20 +41,6 @@ class _MyTestingAppState extends State<MyTestingApp> {
 
   @override //makes clear that we overrides the build method
   Widget build(BuildContext context) {
-    var questions = [
-      {
-        'questionText': 'what is your favorite color',
-        'answers': ['red', 'blue', 'white']
-      },
-      {
-        'questionText': 'what is your favorite animal',
-        'answers': ['rabbit', 'snake', 'dog']
-      },
-      {
-        'questionText': 'who is your favorite instructor',
-        'answers': ['max', 'max', 'max']
-      },
-    ];
     //Needs Type and Context
     return MaterialApp(
       home: Scaffold(
