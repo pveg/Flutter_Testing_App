@@ -28,18 +28,28 @@ class _MyTestingAppState extends State<MyTestingApp> {
   @override //makes clear that we overrides the build method
   Widget build(BuildContext context) {
     var questions = [
-      'what is your favorite color',
-      'what is your favorite animal'
+      {
+        'questionText': 'what is your favorite color',
+        'answers': ['red', 'blue', 'white']
+      },
+      {
+        'questionText': 'what is your favorite animal',
+        'answers': ['rabbit', 'snake', 'dog']
+      },
+      {
+        'questionText': 'who is your favorite instructor',
+        'answers': ['max', 'max', 'max']
+      },
     ];
     //Needs Type and Context
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text('My first app')), //appbar
         body: Column(children: <Widget>[
-          Question(questions[_questionIndex]),
-          Answers(_answerQuestion),
-          Answers(_answerQuestion),
-          Answers(_answerQuestion),
+          Question(questions[_questionIndex]['questionText']),
+          ...(questions[_questionIndex]['answers'] as List<String>)
+              .map((question) => Answers(_answerQuestion, question))
+              .toList()
         ]),
       ),
     ); //receive the named arguments
