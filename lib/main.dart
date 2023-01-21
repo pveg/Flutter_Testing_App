@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import './question.dart';
-import './answers.dart';
+import 'quiz.dart';
+import 'result.dart';
 
 /* void main() {
   runApp(MyTestingApp());
@@ -17,7 +17,7 @@ class MyTestingApp extends StatefulWidget {
 }
 
 class _MyTestingAppState extends State<MyTestingApp> {
-  static const questions = [
+  static const _questions = [
     {
       'questionText': 'what is your favorite color',
       'answers': ['red', 'blue', 'white']
@@ -45,12 +45,13 @@ class _MyTestingAppState extends State<MyTestingApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text('My first app')), //appbar
-        body: Column(children: <Widget>[
-          Question(questions[_questionIndex]['questionText']),
-          ...(questions[_questionIndex]['answers'] as List<String>)
-              .map((question) => Answers(_answerQuestion, question))
-              .toList()
-        ]),
+        body: _questionIndex < _questions.length
+            ? Quiz(
+                answerQuestion: _answerQuestion,
+                questionIndex: _questionIndex,
+                questions: _questions,
+              )
+            : Result(),
       ),
     ); //receive the named arguments
   }
