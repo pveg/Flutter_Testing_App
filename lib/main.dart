@@ -20,23 +20,44 @@ class _MyTestingAppState extends State<MyTestingApp> {
   static const _questions = [
     {
       'questionText': 'what is your favorite color',
-      'answers': ['red', 'blue', 'white']
+      'answers': [
+        {'text': 'red', 'score': 10},
+        {'text': 'blue', 'score': 20},
+        {'text': 'white', 'score': 30}
+      ]
     },
     {
       'questionText': 'what is your favorite animal',
-      'answers': ['rabbit', 'snake', 'dog']
+      'answers': [
+        {'text': 'rabbit', 'score': 20},
+        {'text': 'snake', 'score': 10},
+        {'text': 'dog', 'score': 30}
+      ]
     },
     {
-      'questionText': 'who is your favorite instructor',
-      'answers': ['max', 'max', 'max']
+      'questionText': 'what is your favorite movie',
+      'answers': [
+        {'text': 'Dune', 'score': 20},
+        {'text': 'Star Wars', 'score': 30},
+        {'text': 'Lord of the Rings', 'score': 10}
+      ]
     },
   ];
+
   var _questionIndex = 0;
-  void _answerQuestion() {
+  var _totalScore = 0;
+
+void _answerQuestion(int score) {
+    _totalScore += score;
     setState(() {
       _questionIndex++;
     });
     print(_questionIndex);
+    if (_questionIndex < _questions.length) {
+      print('We have more questions!');
+    } else {
+      print('No more questions!');
+    }
   }
 
   @override //makes clear that we overrides the build method
@@ -51,7 +72,7 @@ class _MyTestingAppState extends State<MyTestingApp> {
                 questionIndex: _questionIndex,
                 questions: _questions,
               )
-            : Result(),
+            : Result(_totalScore),
       ),
     ); //receive the named arguments
   }
