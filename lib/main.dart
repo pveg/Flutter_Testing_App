@@ -47,7 +47,7 @@ class _MyTestingAppState extends State<MyTestingApp> {
   var _questionIndex = 0;
   var _totalScore = 0;
 
-void _answerQuestion(int score) {
+  void _answerQuestion(int score) {
     _totalScore += score;
     setState(() {
       _questionIndex++;
@@ -65,7 +65,9 @@ void _answerQuestion(int score) {
     //Needs Type and Context
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text('My first app')), //appbar
+        appBar: AppBar(
+            title: Text('My first app'),
+            backgroundColor: Colors.blueGrey),
         body: _questionIndex < _questions.length
             ? Quiz(
                 answerQuestion: _answerQuestion,
