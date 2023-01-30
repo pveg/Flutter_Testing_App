@@ -47,6 +47,15 @@ class _MyTestingAppState extends State<MyTestingApp> {
   var _questionIndex = 0;
   var _totalScore = 0;
 
+  void _resetQuiz() {
+    setState(() {
+    _questionIndex = 0;
+    _totalScore = 0;
+      
+    });
+
+  }
+
   void _answerQuestion(int score) {
     _totalScore += score;
     setState(() {
@@ -66,15 +75,14 @@ class _MyTestingAppState extends State<MyTestingApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-            title: Text('My first app'),
-            backgroundColor: Colors.blueGrey),
+            title: Text('My first app'), backgroundColor: Colors.blueGrey),
         body: _questionIndex < _questions.length
             ? Quiz(
                 answerQuestion: _answerQuestion,
                 questionIndex: _questionIndex,
                 questions: _questions,
               )
-            : Result(_totalScore),
+            : Result(_totalScore, _resetQuiz),
       ),
     ); //receive the named arguments
   }
